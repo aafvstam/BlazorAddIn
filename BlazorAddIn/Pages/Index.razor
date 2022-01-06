@@ -1,9 +1,24 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<div class="row">
+	<div class="col-md-4">
+		<h4>
+			Example for calling a JS function returning void:
+		</h4>
+	</div>
+	<div class="col-md-6">
+		<button type="button" class="btn btn-info" @onclick="ShowAlertWindow">Show Alert Window</button>
+	</div>
+</div>
 
-<h1>Hello, world!</h1>
+<div class="row">
+	<div class="col-md-4">
+		<h4>
+			Call JS <code>Write Some Text to the Word Document</code> Function
+		</h4>
+	</div>
+	<div class="col-md-6">
+		<button type="button" class="btn btn-info" @onclick="InsertParagraph">Hello World!</button>
+	</div>
+</div>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />

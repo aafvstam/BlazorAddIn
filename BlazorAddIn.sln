@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32104.313
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAddIn", "BlazorAddIn\BlazorAddIn.csproj", "{32482004-F717-4F15-9DAB-D70249AFF454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAddIn", "BlazorAddIn\BlazorAddIn.csproj", "{32482004-F717-4F15-9DAB-D70249AFF454}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordWebBlazorAddIn", "WordWebBlazorAddIn\WordWebBlazorAddIn.csproj", "{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordWebBlazorAddInWeb", "WordWebBlazorAddInWeb\WordWebBlazorAddInWeb.csproj", "{1E45A83A-7A10-4882-8D5F-BCBFA0B2321A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,16 @@ Global
 		{32482004-F717-4F15-9DAB-D70249AFF454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32482004-F717-4F15-9DAB-D70249AFF454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32482004-F717-4F15-9DAB-D70249AFF454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E30E7BFB-DF7F-41B6-B835-FBCBB26200A2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1E45A83A-7A10-4882-8D5F-BCBFA0B2321A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E45A83A-7A10-4882-8D5F-BCBFA0B2321A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E45A83A-7A10-4882-8D5F-BCBFA0B2321A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E45A83A-7A10-4882-8D5F-BCBFA0B2321A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
