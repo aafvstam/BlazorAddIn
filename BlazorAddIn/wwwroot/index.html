@@ -11,7 +11,7 @@
     <link href="BlazorAddIn.styles.css" rel="stylesheet" />
 
     <!-- Office JavaScript API -->
-        <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 </head>
 
 <body>
@@ -24,29 +24,6 @@
     </div>
 
     <script src="_framework/blazor.webassembly.js"></script>
-    <script>
-        Office.onReady((info) => {
-            // Check that we loaded into Word
-            if (info.host === Office.HostType.Word) {
-
-            }
-        });
-
-        window.insertParagraph = () => {
-
-            console.log("Hello JavaScript in Blazor!!!!");
-
-            return Word.run((context) => {
-
-                // insert a paragraph at the start of the document.
-                const paragraph = context.document.body.insertParagraph("Hello World", Word.InsertLocation.start);
-
-                // sync the context to run the previous API call, and return.
-                return context.sync();
-            });
-        }
-    </script>
-
 </body>
 
 </html>

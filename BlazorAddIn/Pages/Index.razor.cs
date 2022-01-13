@@ -22,5 +22,8 @@ namespace BlazorAddIn.Pages
 
         private async Task InsertParagraph() =>
             await _jsModule.InvokeVoidAsync("insertParagraph");
+
+        private async Task Setup() =>
+            await _jsModule.InvokeVoidAsync("setupDocument");
     }
 }
