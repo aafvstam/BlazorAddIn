@@ -72,18 +72,6 @@ async function deleteEvenContentControls() {
     });
 }
 
-async function handleContentControlAdded(args) {
-    console.log("Content Control Added!");
-}
-
-async function handleContentControlDeleted(args) {
-    console.log("Content Control Deleted!");
-}
-
-async function handleSelectionChanged(args) {
-    console.log("selection changed!");
-}
-
 export async function modifyContentControls() {
     // Adds title and colors to odd and even content controls and changes their appearance.
     await Word.run(async (context) => {
