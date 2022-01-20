@@ -1,7 +1,20 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-html, body {
+html {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #EEEEEE;
+}
+
+#app {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 h1:focus {
@@ -20,6 +33,28 @@ a, .btn-link {
 
 .content {
     padding-top: 1.1rem;
+}
+
+header {
+    flex-direction: column;
+    /*background: #ffffff url(/images/home-bg.png) center center no-repeat;*/
+    background: #9EABCA;
+    background-size: cover;
+    width: 100vw;
+    height: 10rem; /* Header height */
+}
+
+footer {
+    margin-top: 2em;
+    flex-direction: column;
+    font-weight: bolder;
+    font-size: small;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100vw; /* Full width */
+    min-height: 5rem; /* Footer height */
+    background-color: #9EABCA; /* rgb(158, 171, 202) hsl(222, 29%, 71%) */
 }
 
 .valid.modified:not([type=checkbox]) {

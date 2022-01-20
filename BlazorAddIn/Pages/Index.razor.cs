@@ -17,13 +17,16 @@ namespace BlazorAddIn.Pages
             _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts/jsExamples.js");
         }
 
-        private async Task ShowAlertWindow() =>
-            await _jsModule.InvokeVoidAsync("showAlert", new { Name = "John", Age = 35 });
-
         private async Task InsertParagraph() =>
             await _jsModule.InvokeVoidAsync("insertParagraph");
 
         private async Task Setup() =>
             await _jsModule.InvokeVoidAsync("setupDocument");
+
+        private async Task InsertContentControls() =>
+            await _jsModule.InvokeVoidAsync("insertContentControls");
+
+        private async Task ModifyContentControls() =>
+            await _jsModule.InvokeVoidAsync("modifyContentControls");
     }
 }

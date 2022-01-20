@@ -3,34 +3,13 @@
 <div class="row">
 	<div class="col-md-4">
 		<h4>
-			Example for calling a JS function returning void:
-		</h4>
-	</div>
-	<div class="col-md-6">
-		<button type="button" class="btn btn-info" @onclick="ShowAlertWindow">Show Alert Window</button>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-4">
-		<h4>
-			Call JS <code>Write Some Text to the Word Document</code> Function
+			Call JS Write Some Text to the Word Document Function
 		</h4>
 	</div>
 	<div class="col-md-6">
 		<button type="button" class="btn btn-info" @onclick="InsertParagraph">Hello World!</button>
 	</div>
 </div>
-
-<div class="row">
-	<h1>Counter</h1>
-
-	<p role="status">Current count: @currentCount</p>
-
-	<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-</div>
-
-<!-- New sections just for testing purposes -->
 
 <section class="ms-font-m">
 	This sample demonstrates how to insert and change content control properties.
@@ -42,11 +21,12 @@
 </section>
 
 <section class="samples ms-font-m">
-	<h3>Try it out</h3>
-	<span class="ms-font-m">Insert content controls on each paragraph and do it all.</span>
-	<button id="insert-controls" class="ms-Button">
-		<span class="ms-Button-label">Insert</span>
-	</button>
+	<p>
+		<h3>Try it out</h3>
+		<span class="ms-font-m">Insert content controls on each paragraph and do it all.</span>
+		<button id="insert-controls" class="btn btn-info" @onclick="InsertContentControls">Insert Content Controls</button>
+	</p>
+
 	<!--
 		 <p>
 		<span class="ms-font-m">Tag and add Event Handlers on each inserted content controls.</span>
@@ -54,17 +34,16 @@
 			<span class="ms-Button-label">Tag and Handle</span>
 		  </button>
 		<p>
-	-->
+
 	<span class="ms-font-m">Delete Even content controls (This will sadly not trigger the DeleteHandlers anymore).</span>
 	<span class="ms-font-m">To bring back the Delete Handlers remove this button and restore the commented code</span>
 	<button id="delete-controls" class="ms-Button">
 		<span class="ms-Button-label">Delete even cc's</span>
 	</button>
+	-->
 	<p>
 		<span class="ms-font-m">Modify content control appearance and content.</span>
-		<button id="change-controls" class="ms-Button">
-			<span class="ms-Button-label">Modify content controls</span>
-		</button>
+		<button id="change-controls" class="btn btn-info" @onclick="ModifyContentControls">Modify Content Controls</button>
 	</p>
 </section>
 

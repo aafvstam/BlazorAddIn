@@ -1,124 +1,4 @@
-﻿export function showAlert(obj) {
-    const message = 'Name is ' + obj.name + ' Age is ' + obj.age;
-    alert(message);
-}
-
-export function insertParagraph() {
-
-    console.log("Hello JavaScript in Blazor!?!?!?");
-
-    return Word.run((context) => {
-
-        // insert a paragraph at the start of the document.
-        const paragraph = context.document.body.insertParagraph("Hello World from jsExamples", Word.InsertLocation.start);
-
-        // sync the context to run the previous API call, and return.
-        return context.sync();
-    });
-}
-
-async function insertContentControls() {
-    // Traverses each paragraph of the document and wraps a content control on each with either a even or odd tags.
-    await Word.run(async (context) => {
-        let currentdocument = context.document;
-        currentdocument.load("$all");
-
-        await context.sync();
-        currentdocument.onContentControlAdded.add(handleContentControlAdded);
-
-        let paragraphs = context.document.body.paragraphs;
-        paragraphs.load("$none"); // Don't need any properties; just wrap each paragraph with a content control.
-
-        await context.sync();
-
-        let contentcontrolsinserted = 0;
-
-        for (let i = 0; i < paragraphs.items.length; i++) {
-            let contentControl = paragraphs.items[i].insertContentControl();
-            contentcontrolsinserted++;
-        }
-
-        await context.sync();
-
-        // Tag and add handlers --------------------------------
-
-        let contentcontrolsTagged = 0;
-
-        let contentcontrols = currentdocument.contentControls;
-
-        context.load(contentcontrols);
-        await context.sync();
-
-        for (let i = 0; i < contentcontrols.items.length; i++) {
-            let contentControl = contentcontrols.items[i];
-
-            // For even, tag "even".
-            if (i % 2 === 0) {
-                // Tag
-                contentControl.tag = "even";
-                console.log("Content Control Tagged Even!");
-            } else {
-                contentControl.tag = "odd";
-                console.log("Content Control Tagged Odd!");
-            }
-
-            contentControl.onDeleted.add(handleContentControlDeleted);
-            contentControl.onSelectionChanged.add(handleSelectionChanged);
-            await context.sync();
-
-            contentcontrolsTagged++;
-        }
-
-        await context.sync();
-
-        console.log("Content controls tagged and handled: " + contentcontrolsTagged);
-
-        // Delete CCs -------------------------------------------
-        // If we move this into a seperate function the eventhandlers are no longer triggered.
-        // Click the Delete button instead of the code below will not trigger the events created above.
-
-        /* Comment this to invalidate the Delete Handlers
-    
-        let contentcontrolsRemaining = contentcontrols.items.length;
-    
-        for (let i = 0; i < contentcontrols.items.length; i++) {
-          let contentControl = contentcontrols.items[i];
-    
-          // delete even cc
-          if (contentControl.tag == "even") {
-            contentControl.delete(true);
-            contentcontrolsRemaining--;
-          }
-        }
-    
-        await context.sync();
-        console.log("Content controls remaining: " + contentcontrolsRemaining);
-        
-        context.load(contentcontrols);
-        await context.sync();
-        
-        console.log("Controls : " + contentcontrols.items.length);
-    
-        for (let i = 0; i < contentcontrols.items.length; i++) {
-          let contentControl = contentcontrols.items[i];
-    
-          // delete even cc
-          if (contentControl.tag == "odd") {
-            contentControl.delete(true);
-            contentcontrolsRemaining--;
-          }
-        }
-    
-        context.load(contentcontrols);
-        await context.sync();
-    
-        console.log("Controls : " + contentcontrols.items.length);
-    
-        // End comment marker
-    */
-        // Change CC Selection -------------------------------------------
-    });
-}
+﻿
 
 async function tagAndAddEventHandlersContentControls() {
     // Traverses each content control of the document and wraps a content control on each with either a even or odd tags.
@@ -204,7 +84,7 @@ async function handleSelectionChanged(args) {
     console.log("selection changed!");
 }
 
-async function modifyContentControls() {
+export async function modifyContentControls() {
     // Adds title and colors to odd and even content controls and changes their appearance.
     await Word.run(async (context) => {
         // Gets the complete sentence (as range) associated with the insertion point.
@@ -239,6 +119,20 @@ async function modifyContentControls() {
     });
 }
 
+export function insertParagraph() {
+
+    console.log("Hello JavaScript in Blazor!?!?!?");
+
+    return Word.run((context) => {
+
+        // insert a paragraph at the start of the document.
+        const paragraph = context.document.body.insertParagraph("Hello World from jsExamples", Word.InsertLocation.start);
+
+        // sync the context to run the previous API call, and return.
+        return context.sync();
+    });
+}
+
 export async function setupDocument() {
     await Word.run(async (context) => {
         context.document.body.clear();
@@ -257,6 +151,61 @@ export async function setupDocument() {
     });
 }
 
+export async function insertContentControls() {
+    // Traverses each paragraph of the document and wraps a content control on each with either a even or odd tags.
+    await Word.run(async (context) => {
+        let currentdocument = context.document;
+        currentdocument.load("$all");
+
+        await context.sync();
+
+        let paragraphs = context.document.body.paragraphs;
+        paragraphs.load("$none"); // Don't need any properties; just wrap each paragraph with a content control.
+
+        await context.sync();
+
+        let contentcontrolsinserted = 0;
+
+        for (let i = 0; i < paragraphs.items.length; i++) {
+            let contentControl = paragraphs.items[i].insertContentControl();
+            contentcontrolsinserted++;
+        }
+
+        await context.sync();
+
+        // Tag --------------------------------
+
+        let contentcontrolsTagged = 0;
+
+        let contentcontrols = currentdocument.contentControls;
+
+        context.load(contentcontrols);
+        await context.sync();
+
+        for (let i = 0; i < contentcontrols.items.length; i++) {
+            let contentControl = contentcontrols.items[i];
+
+            // For even, tag "even".
+            if (i % 2 === 0) {
+                // Tag
+                contentControl.tag = "even";
+                console.log("Content Control Tagged Even!");
+            } else {
+                contentControl.tag = "odd";
+                console.log("Content Control Tagged Odd!");
+            }
+
+            await context.sync();
+
+            contentcontrolsTagged++;
+        }
+
+        await context.sync();
+
+        console.log("Content controls tagged: " + contentcontrolsTagged);
+    });
+}
+
 /** Default helper for invoking an action and handling errors. */
 async function tryCatch(callback) {
     try {
@@ -266,3 +215,4 @@ async function tryCatch(callback) {
         console.error(error);
     }
 }
+

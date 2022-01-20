@@ -1,18 +1,35 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-@*    <div class="sidebar">
-        <NavMenu />
-    </div>
-*@
-    <main>
-        <div class="top-row px-4">
-            <a href="https://www.softasinsoftware.com">Soft as in Software</a>
-            <a href="https://docs.microsoft.com/aspnet/">About</a>
-        </div>
+<div class="main">
+	<header class="d-flex align-items-center justify-content-center">
+		@*<img src="./images/logotext.png" />*@
+		<div class="row">
+			<h1>Soft as in Software</h1>
+		</div>
+		<div class="row">
+			<h2>Blazor Add-in Demo</h2>
+		</div>
+	</header>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+	@*<NavMenu />*@
+
+	<div class="content">
+		<div class="container">
+			@Body
+		</div>
+	</div>
 </div>
+
+<footer class="d-flex align-items-center justify-content-center">
+	<div class="row">
+		@TrademarkMessage
+	</div>
+	<div class="row">
+		Powered by: @System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription
+	</div>
+</footer>
+
+
+@code {
+	public string TrademarkMessage { get; set; } = "©" + @DateTime.Now.Year + " Soft as in Software. All rights reserved.";
+}
