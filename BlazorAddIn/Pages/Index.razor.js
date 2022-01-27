@@ -107,24 +107,12 @@ export async function modifyContentControls() {
     });
 }
 
-export function insertParagraph() {
-
-    console.log("Hello JavaScript in Blazor!?!?!?");
-
-    return Word.run((context) => {
-
-        // insert a paragraph at the start of the document.
-        const paragraph = context.document.body.insertParagraph("Hello World from jsExamples", Word.InsertLocation.start);
-
-        // sync the context to run the previous API call, and return.
-        return context.sync();
-    });
-}
 
 export async function setupDocument() {
     await Word.run(async (context) => {
         context.document.body.clear();
         context.document.body.insertParagraph("One more paragraph. ", "Start");
+        context.document.body.insertParagraph("Co-locating Index.razor.js Demo", "Start");
         context.document.body.insertParagraph("Inserting another paragraph. ", "Start");
         context.document.body.insertParagraph(
             "Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document.",
@@ -203,4 +191,3 @@ async function tryCatch(callback) {
         console.error(error);
     }
 }
-

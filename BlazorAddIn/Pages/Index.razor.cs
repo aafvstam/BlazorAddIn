@@ -1,32 +1,38 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-using System.Threading.Tasks;
-
 namespace BlazorAddIn.Pages
 {
     public partial class Index
     {
         [Inject]
-        public IJSRuntime JSRuntime { get; set; }
+        public IJSRuntime JSRuntime { get; set; } = default!;
 
-        private IJSObjectReference _jsModule;
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
 
-        protected override async Task OnInitializedAsync()
+        public IJSObjectReference JSModule { get; set; } = default!;
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./scripts/jsExamples.js");
+            if (firstRender)
+            {
+                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Index.razor.js");
+            }
         }
 
-        private async Task InsertParagraph() =>
-            await _jsModule.InvokeVoidAsync("insertParagraph");
-
         private async Task Setup() =>
-            await _jsModule.InvokeVoidAsync("setupDocument");
+            await JSModule.InvokeVoidAsync("setupDocument");
 
         private async Task InsertContentControls() =>
-            await _jsModule.InvokeVoidAsync("insertContentControls");
+            await JSModule.InvokeVoidAsync("insertContentControls");
 
         private async Task ModifyContentControls() =>
-            await _jsModule.InvokeVoidAsync("modifyContentControls");
+            await JSModule.InvokeVoidAsync("modifyContentControls");
+
+        void MoveToPage2()
+        {
+            NavigationManager.NavigateTo("/page2", true);
+        }
     }
 }

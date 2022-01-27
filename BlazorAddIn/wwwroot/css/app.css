@@ -1,11 +1,11 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: #EEEEEE;
 }
 
@@ -36,13 +36,17 @@ a, .btn-link {
 }
 
 header {
-    flex-direction: column;
-    /*background: #ffffff url(/images/home-bg.png) center center no-repeat;*/
-    background: #9EABCA;
+    background: #ffffff url(/images/home-bg.png) center center no-repeat;
     background-size: cover;
     width: 100vw;
     height: 10rem; /* Header height */
+    flex-direction: column;
 }
+
+    header img {
+        width: 70%;
+        max-width: 700px;
+    }
 
 footer {
     margin-top: 2em;
