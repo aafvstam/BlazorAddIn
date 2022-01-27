@@ -14,18 +14,18 @@
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
   <Version>1.0.0.0</Version>
-  <ProviderName>Soft As In Software localhost</ProviderName>
+  <ProviderName>Soft As In Software</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="BlazorAddIn localhost" />
-  <Description DefaultValue="BlazorAddIn localhost Description"/>
+  <DisplayName DefaultValue="BlazorAddIn" />
+  <Description DefaultValue="BlazorAddIn Description"/>
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://localhost:7096/Images/Button32x32.png" />
+  <IconUrl DefaultValue="https://blazortestaddin.azurewebsites.net/Images/Button32x32.png" />
 
-  <SupportUrl DefaultValue="http://www.SoftAsInSoftware.com" />
+  <SupportUrl DefaultValue="https://www.SoftAsInSoftware.com" />
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
-    <AppDomain>https://localhost:7096/</AppDomain>
+    <AppDomain>https://blazortestaddin.azurewebsites.net</AppDomain>
     <AppDomain>https://www.softasinsoftware.com</AppDomain>
     <AppDomain>https://www.softasinsoftware.nl</AppDomain>
     <AppDomain>https://docs.microsoft.com</AppDomain>
@@ -37,7 +37,7 @@
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:7096/" />
+    <SourceLocation DefaultValue="https://blazortestaddin.azurewebsites.net/" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -117,13 +117,13 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="SAIS.tpicon_16x16" DefaultValue="https://localhost:7096/Images/Button16x16.png" />
-        <bt:Image id="SAIS.tpicon_32x32" DefaultValue="https://localhost:7096/Images/Button32x32.png" />
-        <bt:Image id="SAIS.tpicon_80x80" DefaultValue="https://localhost:7096/Images/Button80x80.png" />
+        <bt:Image id="SAIS.tpicon_16x16" DefaultValue="https://blazortestaddin.azurewebsites.net/Images/Button16x16.png" />
+        <bt:Image id="SAIS.tpicon_32x32" DefaultValue="https://blazortestaddin.azurewebsites.net/Images/Button32x32.png" />
+        <bt:Image id="SAIS.tpicon_80x80" DefaultValue="https://blazortestaddin.azurewebsites.net/Images/Button80x80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="SAIS.DesktopFunctionFile.Url" DefaultValue="https://localhost:7096/Functions/FunctionFile.html" />
-        <bt:Url id="SAIS.Taskpane.Url" DefaultValue="https://localhost:7096/" />
+        <bt:Url id="SAIS.DesktopFunctionFile.Url" DefaultValue="https://blazortestaddin.azurewebsites.net/Functions/FunctionFile.html" />
+        <bt:Url id="SAIS.Taskpane.Url" DefaultValue="https://blazortestaddin.azurewebsites.net" />
         <bt:Url id="SAIS.GetStarted.LearnMoreUrl" DefaultValue="https://www.softasinsoftware.com" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
