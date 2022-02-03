@@ -1,0 +1,36 @@
+﻿@page "/page3"
+
+<section class="Title">
+	<h1>
+		Content Control Interactions
+	</h1>
+</section>
+
+<section class="description text">
+	<p>
+		This sample demonstrates how to insert and change content control properties.
+		Each step is now separated into smaller snippets.
+	</p>
+</section>
+
+<section class="setup ms-font-m">
+	<h3>Set up</h3>
+	<button class="btn btn-primary" @onclick="Setup">Detailed Setup</button>
+</section>
+
+@*<div>
+	My Paragraph Counter is: @ParagraphCount
+</div>
+
+<section class="setup ms-font-m">
+	<h3>Set up</h3>
+	<button class="btn btn-primary" @onclick="CountParagraps">Count Paragraphs</button>
+</section>
+*@
+<hr />
+
+<div class="row">
+	<div class="col-md-6">
+		<button @onclick="@(() => MoveToPage("/"))" class="btn btn-primary">Home</button>
+	</div>
+</div>

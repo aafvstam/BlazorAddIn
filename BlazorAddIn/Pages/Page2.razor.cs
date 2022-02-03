@@ -24,9 +24,9 @@ namespace BlazorAddIn.Pages
         private async Task InsertParagraph() =>
             await JSModule.InvokeVoidAsync("insertParagraph");
 
-        void MoveToHome()
+        void MoveToPage(string page)
         {
-            NavigationManager.NavigateTo("/", true);
+            NavigationManager.NavigateTo(page, true);
         }
     }
 }

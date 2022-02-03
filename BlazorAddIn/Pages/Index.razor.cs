@@ -30,9 +30,9 @@ namespace BlazorAddIn.Pages
         private async Task ModifyContentControls() =>
             await JSModule.InvokeVoidAsync("modifyContentControls");
 
-        void MoveToPage2()
+        void MoveToPage(string page)
         {
-            NavigationManager.NavigateTo("/page2", true);
+            NavigationManager.NavigateTo(page, true);
         }
     }
 }
