@@ -25,10 +25,19 @@ a, .btn-link {
     color: #0071c1;
 }
 
-.btn-primary {
+.btn div {
+    font-size:x-small;
+    width: 80px;
+}
+
+.btn.btn-primary {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+}
+
+.btn.btn-primary.nav-addin {
+    padding: 0;
 }
 
 .content {
@@ -112,3 +121,8 @@ section.samples {
         margin-left: 20px;
         min-width: 80px;
     }
+
+.navbar {
+    background-color: #9EABCA; /* rgb(158, 171, 202) hsl(222, 29%, 71%) */
+}
+

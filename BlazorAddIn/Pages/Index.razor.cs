@@ -8,9 +8,6 @@ namespace BlazorAddIn.Pages
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
 
-        [Inject]
-        public NavigationManager NavigationManager { get; set; } = default!;
-
         public IJSObjectReference JSModule { get; set; } = default!;
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -29,10 +26,5 @@ namespace BlazorAddIn.Pages
 
         private async Task ModifyContentControls() =>
             await JSModule.InvokeVoidAsync("modifyContentControls");
-
-        void MoveToPage(string page)
-        {
-            NavigationManager.NavigateTo(page, true);
-        }
     }
 }

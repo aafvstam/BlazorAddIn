@@ -3,13 +3,10 @@ using Microsoft.JSInterop;
 
 namespace BlazorAddIn.Pages
 {
-    public partial class Page3
+    public partial class ContentControlsDetailed
     {
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; } = default!;
 
         public IJSObjectReference JSModule { get; set; } = default!;
 
@@ -19,7 +16,7 @@ namespace BlazorAddIn.Pages
         {
             if (firstRender)
             {
-                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/Page3.razor.js");
+                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/ContentControlsDetailed.razor.js");
             }
         }
 
@@ -63,10 +60,5 @@ namespace BlazorAddIn.Pages
         //    Console.WriteLine("Test");
         //    Console.WriteLine(ParagraphCount);
         //}
-
-        void MoveToPage(string page)
-        {
-            NavigationManager.NavigateTo(page, true);
-        }
     }
 }
