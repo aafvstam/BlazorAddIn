@@ -22,25 +22,35 @@ export async function replaceParagraph(text) {
     });
 }
 
+export function emailRegistration(message) {
+    const result = message;
+    if (result === '' || result === null)
+        return 'Please provide an email'
+    const returnMessage = 'Hi ' + result.split('@')[0] + ' your email: ' + result + ' has been accepted.';
+    return returnMessage;
+}
+
 export async function paragraphCount() {
 
-    let numberofParagraphs = 0;
+        let numberofParagraphs = 0;
 
-    await Word.run(async (context) => {
-        let currentdocument = context.document;
-        currentdocument.load("$all");
+        await Word.run(async (context) => {
+            let currentdocument = context.document;
+            currentdocument.load("$all");
 
-        await context.sync();
+            await context.sync();
 
-        let paragraphs = context.document.body.paragraphs;
-        paragraphs.load("$none"); // Don't need any properties;
+            let paragraphs = context.document.body.paragraphs;
+            paragraphs.load("$none"); // Don't need any properties;
 
-        await context.sync();
+            await context.sync();
 
-        numberofParagraphs = paragraphs.items.length;
+            numberofParagraphs = paragraphs.items.length;
 
-        console.log("Number of paragraphs");
-        console.log(numberofParagraphs);
+            console.log("Number of paragraphs");
+            console.log(numberofParagraphs);
 
-    });
+        });
+
+        return numberofParagraphs.toString() ;
 }

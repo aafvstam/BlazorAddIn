@@ -1,12 +1,15 @@
 ﻿<div class="navbar px-3">
 	<div class="container">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<button @onclick="@(() => MoveToPage("/"))" class="btn btn-primary nav-addin"><div>Home</div></button>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<button @onclick="@(() => MoveToPage("/helloworld"))" class="btn btn-primary nav-addin"><div>Hello World</div></button>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
+			<button @onclick="@(() => MoveToPage("/requestcontextdemo"))" class="btn btn-primary nav-addin"><div>Request Context</div></button>
+		</div>
+		<div class="col-md-3">
 			<button @onclick="@(() => MoveToPage("/contentcontroldetailed"))" class="btn btn-primary nav-addin"><div>Content Controls</div></button>
 		</div>
 	</div>
