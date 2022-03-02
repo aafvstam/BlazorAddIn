@@ -6,6 +6,8 @@ export async function clearDocument() {
 }
 
 export async function insertParagraph(text, location) {
+
+     
     await Word.run(async (context) => {
         context.document.body.insertParagraph(text, location);
     });
@@ -22,20 +24,12 @@ export async function replaceParagraph(text) {
     });
 }
 
-export function emailRegistration(message) {
-    const result = message;
-    if (result === '' || result === null)
-        return 'Please provide an email'
-    const returnMessage = 'Hi ' + result.split('@')[0] + ' your email: ' + result + ' has been accepted.';
-    return returnMessage;
-}
-
 export async function paragraphCount() {
 
         let numberofParagraphs = 0;
 
         await Word.run(async (context) => {
-            let currentdocument = context.document;
+            const currentdocument = context.document;
             currentdocument.load("$all");
 
             await context.sync();
@@ -47,10 +41,15 @@ export async function paragraphCount() {
 
             numberofParagraphs = paragraphs.items.length;
 
-            console.log("Number of paragraphs");
+            console.log("Paragraph Count JS: ");
             console.log(numberofParagraphs);
-
+        })
+        .catch(function (error) {
+            console.log('Error: ' + JSON.stringify(error));
+            if (error instanceof OfficeExtension.Error) {
+                console.log('Debug info: ' + JSON.stringify(error.debugInfo));
+            }
         });
-
-        return numberofParagraphs.toString() ;
+    
+    return { Value: numberofParagraphs } ;
 }

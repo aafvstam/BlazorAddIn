@@ -1,29 +1,39 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-using System.Text.Json;
-
 namespace BlazorAddIn.Pages
 {
-    public partial class ContentControlsDetailed
+    public class ReturnValue
+    {
+        public int Value { get; set; } = -1;
+    }
+
+    public partial class InteractWithParagraphs
     {
         [Inject]
         public IJSRuntime JSRuntime { get; set; } = default!;
 
         public IJSObjectReference JSModule { get; set; } = default!;
 
-        // ToDo: Convert to paragraph number output
-        private string ParagraphCount { get; set; } = "0"; 
+        public ReturnValue ReturnValue { get; set; } = new ReturnValue();
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            Console.WriteLine("OnAfterRenderAsync");
+
             if (firstRender)
             {
-                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/ContentControlsDetailed.razor.js");
+                JSModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./Pages/InteractWithParagraphs.razor.js");
+            }
+
+            if (ReturnValue.Value == -1)
+            {
+                await CountParagraps();
+                StateHasChanged();
             }
         }
 
-        private async Task Setup()
+        internal async Task InsertParagraps()
         {
             // VSTO Way of Working
             // Get ActiveDocument
@@ -59,11 +69,10 @@ namespace BlazorAddIn.Pages
 
         private async Task CountParagraps()
         {
-            // ToDo: Convert to paragraph number output
-            ParagraphCount = await JSModule.InvokeAsync<string>("paragraphCount");
+            this.ReturnValue = await JSModule.InvokeAsync<ReturnValue>("paragraphCount");
 
-            Console.WriteLine("Paragraph Count: ");
-            Console.WriteLine(ParagraphCount);
+            Console.WriteLine("Paragraph Count C#: ");
+            Console.WriteLine(ReturnValue.Value);
         }
     }
 }

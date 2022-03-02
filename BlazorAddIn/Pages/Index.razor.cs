@@ -18,13 +18,13 @@ namespace BlazorAddIn.Pages
             }
         }
 
-        private async Task Setup() =>
+        internal async Task Setup() =>
             await JSModule.InvokeVoidAsync("setupDocument");
 
-        private async Task InsertContentControls() =>
+        internal async Task InsertContentControls() =>
             await JSModule.InvokeVoidAsync("insertContentControls");
 
-        private async Task ModifyContentControls() =>
+        internal async Task ModifyContentControls() =>
             await JSModule.InvokeVoidAsync("modifyContentControls");
     }
 }
